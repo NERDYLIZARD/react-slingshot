@@ -1,14 +1,13 @@
 {
-  "name": "react-slingshot",
+  "name": "react-slingshot-feature-based-file-structure",
   "version": "7.0.1",
-  "description": "Starter kit for creating apps with React and Redux",
+  "description": "Starter kit for creating apps with React and Redux forked from React-Slingshot and modified for a feature based file structure",
   "engines": {
     "npm": ">=3"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
     "setup": "node tools/setup/setupMessage.js && npm install && node tools/setup/setup.js",
-    "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm run start-message",
     "start": "concurrently -k -r -s first \"npm run test:watch\" \"npm run open:src\" \"npm run lint:watch\"",
@@ -28,7 +27,7 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
-  "author": "Cory House",
+  "author": "Sithideth Bouasavanh",
   "license": "MIT",
   "dependencies": {
     "object-assign": "4.1.0",
@@ -110,11 +109,12 @@
     "redux",
     "flux",
     "boilerplate",
-    "starter"
+    "starter",
+    "feature based file structure"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/react-slingshot"
+    "url": "https://github.com/NERDYLIZARD/react-slingshot"
   },
   "jest": {
     "moduleNameMapper": {
