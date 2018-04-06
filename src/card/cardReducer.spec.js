@@ -14,7 +14,7 @@ describe('Card Reducer', () => {
     expect(reducer(undefined, action)).toEqual(expected);
   });
 
-  it('LOAD_CARD_SUCCESS action', () => {
+  it('should update state on LOAD_CARD_SUCCESS action', () => {
     const cards = [
       {
         wisdom: 'abc',
