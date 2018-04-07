@@ -5,8 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../constants/customPropTypes';
 import * as actions from './cardActions';
-import {connect} from 'react-redux';
-import bindActionCreators from "redux/es/bindActionCreators";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 
 export class CardPage extends React.Component {
@@ -19,17 +19,13 @@ export class CardPage extends React.Component {
     this.props.actions.loadCards();
   }
 
-  renderCard(card, index) {
-    return (
-      <p key={index}><i>{card.wisdom}</i> - {card.attribute}</p>
-    );
-  }
-
   render() {
     return (
       <div>
         <h1>Cards</h1>
-        {this.props.cards.map(this.renderCard)}
+        {this.props.cards.map((card, index) =>
+          <p key={index}><i>{card.wisdom}</i> - {card.attribute}</p>
+        )}
       </div>
     );
   }
@@ -40,7 +36,7 @@ CardPage.propTypes = {
   cards: PropTypes.arrayOf(CustomPropTypes.card).isRequired,
 };
 
-const mapStateToProps = ({cards}) => ({
+const mapStateToProps = ({ cards }) => ({
   cards
 });
 
