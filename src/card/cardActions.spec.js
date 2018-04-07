@@ -2,8 +2,11 @@
  * Created on 06-Apr-18.
  */
 
-import * as actions from './cardActions';
+import * as cardActions from './cardActions';
 import * as actionTypes from '../app/actionTypes';
+import configureMockStore from 'redux-mock-store';
+import thunk from "redux-thunk";
+import initialState from "../app/initialState";
 
 describe('Card Actions', () => {
 
@@ -23,8 +26,31 @@ describe('Card Actions', () => {
         type: actionTypes.LOAD_CARDS_SUCCESS,
         cards
       };
-      expect(actions.loadCardsSuccess(cards)).toEqual(expectedAction);
+      expect(cardActions.loadCardsSuccess(cards)).toEqual(expectedAction);
     });
   });
+
+
+  const middleware = [thunk];
+  const mockStore = configureMockStore(middleware);
+
+  describe('loadCard', () => {
+    it('should dispatch action type LOAD_CARDS_SUCCESS after resolving a promise and the promise has array as its resolve', done => {
+      const expectedActions = [{
+        type: actionTypes.LOAD_CARDS_SUCCESS,
+      }];
+      const store = mockStore(initialState, expectedActions, done);
+
+      store.dispatch(cardActions.loadCards())
+        .then(() => {
+          const actions = store.getActions();
+          expect(actions.length).toEqual(expectedActions.length);
+          expect(actions[0].type).toEqual(expectedActions[0].type);
+          done();
+        });
+
+    });
+  });
+
 
 });
