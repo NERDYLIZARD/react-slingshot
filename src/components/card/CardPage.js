@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as CustomPropTypes from '../app/customPropTypes';
+import * as CustomPropTypes from '../../constants/customPropTypes';
 import * as actions from './cardActions';
 import {connect} from 'react-redux';
 import bindActionCreators from "redux/es/bindActionCreators";

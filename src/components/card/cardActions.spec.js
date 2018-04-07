@@ -3,10 +3,10 @@
  */
 
 import * as cardActions from './cardActions';
-import * as actionTypes from '../app/actionTypes';
+import * as actionTypes from '../../constants/actionTypes';
 import configureMockStore from 'redux-mock-store';
 import thunk from "redux-thunk";
-import initialState from "../app/initialState";
+import initialState from "../../constants/initialState";
 
 describe('Card Actions', () => {
 

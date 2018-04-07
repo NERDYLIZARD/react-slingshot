@@ -4,7 +4,7 @@
 
 import * as actions from './cardActions';
 import reducer from './cardReducer';
-import initialState from '../app/initialState';
+import initialState from '../../constants/initialState';
 
 describe('Card Reducer', () => {
 
