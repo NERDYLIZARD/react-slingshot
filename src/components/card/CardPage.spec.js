@@ -17,7 +17,7 @@ describe("<CardPage />", () => {
     loadCards: jest.fn(),
   };
 
-  it('should contain h1 with "Card" as its value', () => {
+  it('should contain h1 with "Cards" as its value', () => {
     const wrapper = shallow(
       <CardPage
         actions={actions}
@@ -25,6 +25,16 @@ describe("<CardPage />", () => {
       />
     );
     expect(wrapper.find('h1').text()).toBe('Cards');
+  });
+
+  it('should call loadCards()', () => {
+    shallow(
+      <CardPage
+        actions={actions}
+        cards={initialState.cards}
+      />
+    );
+    expect(actions.loadCards).toHaveBeenCalled();
   });
 
   it("should match snapshot", () => {

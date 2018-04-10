@@ -1,3 +1,7 @@
 export default {
-  cards: []
+  cards: [],
+  card: {
+    wisdom: '',
+    attribute: '',
+  }
 };
